@@ -28,6 +28,8 @@ class User
      */
     private $password;
 
+    private $confirm_password;
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -65,9 +67,14 @@ class User
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function getConfirm_password(): ?string
     {
-        $this->password = $password;
+        return $this->confirm_password;
+    }
+
+    public function setConfirm_password(string $confirm_password): self
+    {
+        $this->confirm_password = $confirm_password;
 
         return $this;
     }
