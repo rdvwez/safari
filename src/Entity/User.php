@@ -28,7 +28,7 @@ class User
      */
     private $password;
 
-    private $confirm_password;
+    public $confirm_password;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

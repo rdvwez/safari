@@ -2,27 +2,77 @@
 
 
 {% block body %}
-    <div class="container">
+  <div class="container">
+    <div class="row">
+      {# <div class="flow-text "> #}
+        <div class="col s3"> </div>
+        <div class="col s6 ">
 
-       <div class="row">
+          <div class="card-panel ">
 
-        <div class="flow-text"> <h5 class="center-align z-depth-4">Interface de connexion</h5> </div>
-      </div>
+              <div class="row">
+                <div class="col s5"></div>
+                <div class="col s2"> <i class=" large material-icons">account_circle</i> </div>
+                <div class="col s5"></div>
+              </div>
+              <div class="row">
+                <form class="col s12">
 
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">email</i>
+                      <input id="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                  </div>
 
-      <div class="row">
-       <div class="col s12 m5">
-      <div class="card-panel teal">
-        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-        </span>
-      </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <i class="material-icons prefix">lock</i>
+                      <input id="password" type="password" class="validate">
+                      <label for="password">Password</label>
+                    </div>
+                  </div>
+
+                   <div class="row">
+                    <div class="input-field col s12">
+                        <input class="with-gap filled-in"  type="checkbox"  />
+                        <span>se souvenir de moi</span>
+                      </label>
+                    </div>
+                  </div>
+                
+                  
+                
+                  
+                  <button class="btn waves-effect waves-light btn-large" type="submit" name="action">connexion
+                    <i class="material-icons right">send</i>
+                  </button>
+        
+
+                </form>
+              </div>
+              <div class="row">
+                <div class="col s6"><p> Pas de compte, cliquez <a href="#">ici</a></p></div>
+                
+                <div class="col s2  "></div>
+                <div class="col s4"><p><a href="#">Mot de passe oublié</a></p></div>
+                 
+
+              </div>
+          </div>
+          {# <h5 class="center-align z-depth-4">Interface de connexion</h5>  #}
+        </div>
+        <div class="col s3"></div>
     </div>
+
+
+      {# <div class="row"></div> #}
         {# <div class="col s4">1</div>
         <div class="col s4">2</div>
         <div class="col s4">3</div> #}
       
-      </div>
     </div>
+  </div>
 
 {% endblock %}
