@@ -2,14 +2,21 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(
+ * fields={"login"},
+ * message="Cet email est déja pris"
+ * )
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -20,14 +27,19 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Login()
      */
     private $login;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8",minMessage="La taille minimale requise pour le mot de passe est de 8 caractères")
      */
     private $password;
 
+    /**
+     * @Assert\EqualTo(propertyPath="password",message="Le mot de passe et sa confirmation ne sont pas pareils")
+     */
     public $confirm_password;
 
     /**
@@ -65,6 +77,12 @@ class User
     public function getPassword(): ?string
     {
         return $this->password;
+    }
+
+    public function setPassword(string $password): ?self
+    {
+        $this->password = $password;
+        return $this;
     }
 
     public function getConfirm_password(): ?string
@@ -118,4 +136,15 @@ class User
 
         return $this;
     }
+
+    public function eraseCredentials(){}
+
+    public function getSalt(){}
+
+    public function getRoles()
+    {
+      return ['ROLS_USER'];
+    }
+
+
 }
